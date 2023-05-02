@@ -1,0 +1,20 @@
+version: '3.9'
+
+services:
+  frontend:
+    ports:
+      # - 3000:80
+      - 3000:3000
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    command: npm run start
+    networks:
+      - spring_microservices
+
+networks:
+  spring_microservices:
+    external: true
+    
