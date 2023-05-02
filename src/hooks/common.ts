@@ -49,10 +49,17 @@ export type OrderDto = {
     id: number;
     date: string;
     status: OrderStatus;
+    products: ProductItemDto[];
+};
+
+type ProductItemDto = {
+    productId: string;
+    amount: number;
 };
 
 export type Order = {
     id: number;
     date: Date;
     status: OrderStatus;
+    products: ProductItemDto[];
 };

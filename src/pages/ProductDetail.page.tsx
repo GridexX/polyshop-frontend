@@ -73,7 +73,16 @@ export const ProductDetailPage = () => {
 
     return (
         <Box>
-            {/* {error && <Typography variant="h5" component="div" maxWidth={200}>Error: {JSON.stringify(error.toJSON())}</Typography>} */}
+            {
+              error && <Typography variant={"caption"} component={"div"} color="error">
+                {error.message} {error.name}
+                </Typography>
+            }
+            {
+              errorAddToCart && <Typography variant={"caption"} component={"div"} color="error">
+                {errorAddToCart.message} {errorAddToCart.name}
+                </Typography>
+            }
             <Typography variant={"h3"} component={"div"} maxWidth={400}>
                 {isProductUndefined ? <Skeleton /> : product?.name}
             </Typography>

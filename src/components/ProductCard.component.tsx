@@ -16,51 +16,51 @@ export const ProductCard = ({ product }: ProductCardProps) => {
 
     return (
         <Grid item xs={4}>
-            <Link to={"/product/" + product?.id}>
-                <Card>
-                    <CardContent>
-                        <Typography variant="h5" component="div" maxWidth={200}>
+            <Card>
+                <CardContent>
+                    <Link to={"/product/" + product?.id}>
+                        <Typography color="black" variant="h5" component="div" maxWidth={200}>
                             {isProductUndefined ? <Skeleton /> : product?.name}
                         </Typography>
-                        <Typography
-                            sx={{ mb: 1.5 }}
-                            color="text.secondary"
-                            maxWidth={100}
-                        >
-                            {isProductUndefined ? (
-                                <Skeleton />
-                            ) : (
-                                product?.price + "€"
-                            )}
-                        </Typography>
-                        <Typography variant="body2">
-                            {isProductUndefined ? (
-                                <Skeleton />
-                            ) : (
-                                product?.description
-                            )}
-                        </Typography>
-                    </CardContent>
-                    <CardActions>
-                        {isProductUndefined && (
-                            <Skeleton width={100} height={30} />
+                    </Link>
+                    <Typography
+                        sx={{ mb: 1.5 }}
+                        color="text.secondary"
+                        maxWidth={100}
+                    >
+                        {isProductUndefined ? (
+                            <Skeleton />
+                        ) : (
+                            product?.price + "€"
                         )}
-                        {!isProductUndefined && (
-                            <>
-                                <Button size="small">See More</Button>
-                                <Button
-                                    size="small"
-                                    color="secondary"
-                                    sx={{marginLeft: 2}}
-                                    href={`/product/edit/${product.id}`}
-                                >
-                                    Edit
-                                </Button>
-                            </>
+                    </Typography>
+                    <Typography variant="body2">
+                        {isProductUndefined ? (
+                            <Skeleton />
+                        ) : (
+                            product?.description
                         )}
-                    </CardActions>
-                </Card>
-            </Link>
+                    </Typography>
+                </CardContent>
+                <CardActions>
+                    {isProductUndefined && <Skeleton width={100} height={30} />}
+                    {!isProductUndefined && (
+                        <>
+                            <Button size="small"
+                                href={`/product/${product?.id}`}
+                            >Voir plus</Button>
+                            <Button
+                                size="small"
+                                color="secondary"
+                                sx={{ marginLeft: 2 }}
+                                href={`/product/edit/${product.id}`}
+                            >
+                                Edit
+                            </Button>
+                        </>
+                    )}
+                </CardActions>
+            </Card>
         </Grid>
     );
 };

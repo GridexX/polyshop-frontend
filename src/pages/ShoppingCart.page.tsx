@@ -42,6 +42,21 @@ export const ShoppingCartPage = () => {
             <Typography variant={"h3"} component={"div"}>
                 Shopping Cart
             </Typography>
+            {
+              error && <Typography variant={"caption"} component={"div"} color="error">
+                {error.message} {error.name}
+                </Typography>
+            }
+            {
+              clearCartError && <Typography variant={"caption"} component={"div"} color="error">
+                {clearCartError.message} {clearCartError.name}
+                </Typography>
+            }
+            {
+              checkoutCartError && <Typography variant={"caption"} component={"div"} color="error">
+                {checkoutCartError.message} {checkoutCartError.name}
+                </Typography>
+            }
             <Typography
                 variant="subtitle1"
                 color="text.secondary"

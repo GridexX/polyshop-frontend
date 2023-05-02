@@ -21,7 +21,7 @@ export const useGetOrders = (): ReturnObject => {
 
     const [orders, setOrders] = useState<Order[] | undefined>(undefined);
 
-    const { isLoading, data, error } = useQuery<OrderDto[], AxiosError>(
+    const { isLoading, error } = useQuery<OrderDto[], AxiosError>(
         ["get_orders", ORDERS_URL],
         getOrders,
         {

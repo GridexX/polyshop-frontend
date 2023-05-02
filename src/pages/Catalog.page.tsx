@@ -31,21 +31,29 @@ export const CatalogPage = () => {
             <Typography variant={"h3"} component={"div"}>
                 Catalog
             </Typography>
+            <Grid container spacing={2} direction={"row"} justifyContent="space-between" alignContent={"center"}>
+                <Grid item>
             <Typography
                 variant="subtitle1"
                 color="text.secondary"
                 maxWidth={100}
                 marginTop={2}
+                component={"span"}
             >
                 {loading ? <Skeleton /> : products.length + " products"}
             </Typography>
+            </Grid>
+            <Grid item>
+            {!loading && <Button href="/product/create">
+                Créer un produit</Button>}
+                </Grid>
+                </Grid>
             <Grid container spacing={2}>
                 {products.map((product) => (
                     <ProductCard product={product} key={product?.id} />
                 ))}
             </Grid>
-            {!loading && <Button href="/product/create">
-                Créer un produit</Button>}
+            
         </div>
     );
 };
