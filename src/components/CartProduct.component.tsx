@@ -52,8 +52,8 @@ export const CartProduct = ({ cartProduct }: CartProductProps) => {
                                 {istProductUndefined ? (
                                     <Skeleton />
                                 ) : (
-                                    `Total ${
-                                        cartProduct?.price * cartProduct?.price
+                                    `Total: ${
+                                        cartProduct?.price * cartProduct?.amount
                                     } €`
                                 )}
                             </Typography>

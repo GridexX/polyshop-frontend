@@ -43,6 +43,7 @@ export const OrderCard = ({ order }: OrderCardProps) => {
                                 variant="subtitle1"
                                 component="div"
                                 maxWidth={200}
+                                minWidth={200}
                             >
                                 {istOrderUndefined ? (
                                     <Skeleton />

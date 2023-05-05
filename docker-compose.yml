@@ -2,15 +2,13 @@ version: '3.9'
 
 services:
   frontend:
+    image: node:16-alpine
+    container_name: polyshop_frontend
     ports:
-      # - 3000:80
       - 3000:3000
-    build:
-      context: .
-      dockerfile: Dockerfile
     volumes:
-      - .:/app
-    command: npm run start
+      - $PWD:/app
+    command: /bin/sh -c "cd /app && npm run start"
     networks:
       - spring_microservices
 
